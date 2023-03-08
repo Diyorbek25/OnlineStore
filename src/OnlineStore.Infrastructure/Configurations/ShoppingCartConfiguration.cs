@@ -9,17 +9,17 @@ public class ShoppingCartConfiguration : IEntityTypeConfiguration<ShoppingCart>
     public void Configure(EntityTypeBuilder<ShoppingCart> builder)
     {
         builder.ToTable("ShoppingCarts");
-        builder.HasKey(sc => sc.Id);
+        builder.HasKey(shoppingCart => shoppingCart.Id);
 
-        builder.Property(sc => sc.CreatedAt)
+        builder.Property(shoppingCart => shoppingCart.CreatedAt)
             .HasColumnType("datetime2");
 
-        builder.Property(sc => sc.UpdatedAt)
+        builder.Property(shoppingCart => shoppingCart.UpdatedAt)
             .HasColumnType("datetime2");
 
-        builder.HasMany(sc => sc.ShoppingCartItems)
-            .WithOne(sci => sci.ShoppingCart)
-            .HasForeignKey(sci => sci.ShoppingCartId)
+        builder.HasMany(shoppingCart => shoppingCart.ShoppingCartItems)
+            .WithOne(shoppingCartItem => shoppingCartItem.ShoppingCart)
+            .HasForeignKey(shoppingCartItem => shoppingCartItem.ShoppingCartId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }
