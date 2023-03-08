@@ -5,9 +5,11 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineStore.Api", "OnlineStore.Api.csproj", "{8F9A4157-0F39-4717-ACEB-0531A240994B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Domain", "..\OnlineStore.Domain\OnlineStore.Domain.csproj", "{47969BB1-7C51-4B18-93C3-B6FCB7BF184C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineStore.Domain", "..\OnlineStore.Domain\OnlineStore.Domain.csproj", "{47969BB1-7C51-4B18-93C3-B6FCB7BF184C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Infrastructure", "..\OnlineStore.Infrastructure\OnlineStore.Infrastructure.csproj", "{58DF7E1A-B809-4ED8-B430-87F4E754F7EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineStore.Infrastructure", "..\OnlineStore.Infrastructure\OnlineStore.Infrastructure.csproj", "{58DF7E1A-B809-4ED8-B430-87F4E754F7EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Application", "..\OnlineStore.Application\OnlineStore.Application.csproj", "{D3B4A81A-BDF2-4DD5-8048-A4D831077202}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{58DF7E1A-B809-4ED8-B430-87F4E754F7EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58DF7E1A-B809-4ED8-B430-87F4E754F7EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58DF7E1A-B809-4ED8-B430-87F4E754F7EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3B4A81A-BDF2-4DD5-8048-A4D831077202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B4A81A-BDF2-4DD5-8048-A4D831077202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B4A81A-BDF2-4DD5-8048-A4D831077202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B4A81A-BDF2-4DD5-8048-A4D831077202}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
