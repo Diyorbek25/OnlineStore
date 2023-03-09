@@ -13,7 +13,8 @@ public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
         builder.HasKey(orderItem => orderItem.Id);
 
         builder.Property(orderItem => orderItem.Price)
-            .IsRequired();
+            .IsRequired()
+            .HasColumnType("decimal(18,2)");
 
         builder.Property(orderItem => orderItem.Quantity) 
             .IsRequired();

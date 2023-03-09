@@ -13,13 +13,16 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
         builder.HasKey(order => order.Id);
 
         builder.Property(order => order.TotalPrice)
-            .IsRequired();
+            .IsRequired()
+            .HasColumnType("decimal(18,2)");
 
         builder.Property(order => order.CreatedAt) 
-            .IsRequired();
+            .IsRequired()
+            .HasColumnType("datetime2");
 
         builder.Property(order => order.UpdatedAt)
-            .IsRequired(false);
+            .IsRequired(false)
+            .HasColumnType("datetime2");
 
         builder.HasMany(order => order.OrderItems)
             .WithOne(orderItem => orderItem.Order)
