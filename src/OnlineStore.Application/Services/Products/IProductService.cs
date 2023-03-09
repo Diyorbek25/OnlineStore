@@ -4,5 +4,4 @@ namespace OnlineStore.Application.Services.Products;
 
 public interface IProductService
 {
-    IQueryable<Product>
 }
