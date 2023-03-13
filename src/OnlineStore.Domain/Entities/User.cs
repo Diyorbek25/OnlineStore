@@ -9,6 +9,7 @@ public class User
     public string Salt { get; set; }
     public string Phone { get; set; }
     public string Address { get; set; }
+    public ICollection<Role> Roles { get; set; }
     public ICollection<ShoppingCart> ShoppingCarts { get; set; }
     public ICollection<Order> Orders { get; set; }
 }
