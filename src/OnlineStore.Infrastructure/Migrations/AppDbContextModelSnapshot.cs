@@ -22,34 +22,6 @@ namespace OnlineStore.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("OnlineStore.Domain.Entities.Admin", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Admins", (string)null);
-                });
-
             modelBuilder.Entity("OnlineStore.Domain.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -158,6 +130,29 @@ namespace OnlineStore.Infrastructure.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products", (string)null);
+                });
+
+            modelBuilder.Entity("OnlineStore.Domain.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("OnlineStore.Domain.Entities.ShoppingCart", b =>
@@ -293,6 +288,13 @@ namespace OnlineStore.Infrastructure.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("OnlineStore.Domain.Entities.Role", b =>
+                {
+                    b.HasOne("OnlineStore.Domain.Entities.User", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("OnlineStore.Domain.Entities.ShoppingCart", b =>
                 {
                     b.HasOne("OnlineStore.Domain.Entities.User", "User")
@@ -348,6 +350,8 @@ namespace OnlineStore.Infrastructure.Migrations
             modelBuilder.Entity("OnlineStore.Domain.Entities.User", b =>
                 {
                     b.Navigation("Orders");
+
+                    b.Navigation("Roles");
 
                     b.Navigation("ShoppingCarts");
                 });
